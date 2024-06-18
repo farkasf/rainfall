@@ -13,13 +13,12 @@ Upon analyzing the binary, we uncover that it requires us to input two argument 
 
 ## GDB analysis
 ```shell
-(gdb) disas main
 Dump of assembler code for function main:
-   0x08048521 <+0>:		push   %ebp
-   0x08048522 <+1>:		mov    %esp,%ebp
-   0x08048524 <+3>:		and    $0xfffffff0,%esp
-   0x08048527 <+6>:		sub    $0x20,%esp
-   0x0804852a <+9>:		movl   $0x8,(%esp)
+   0x08048521 <+0>:	push   %ebp
+   0x08048522 <+1>:	mov    %esp,%ebp
+   0x08048524 <+3>:	and    $0xfffffff0,%esp
+   0x08048527 <+6>:	sub    $0x20,%esp
+   0x0804852a <+9>:	movl   $0x8,(%esp)
    0x08048531 <+16>:	call   0x80483f0 <malloc@plt>
    0x08048536 <+21>:	mov    %eax,0x1c(%esp)
    0x0804853a <+25>:	mov    0x1c(%esp),%eax
@@ -75,7 +74,6 @@ End of assembler dump.
 ```
 The main function invokes <code>strcpy()</code>, <code>malloc()</code>, <code>fopen()</code>, <code>fgets()</code> and <code>puts()</code> during execution. Upon closer inspection, it seems that a password file is opened and its contents stored in a variable, which is never displayed. As no other functions are called, we list all functions to identify any unused ones.
 ```shell
-(gdb) i func
 All defined functions:
 
 Non-debugging symbols:
@@ -111,12 +109,11 @@ Non-debugging symbols:
 ```
 We opt to examine the sole function, <code>m()</code>:
 ```shell
-(gdb) disas m
 Dump of assembler code for function m:
-   0x080484f4 <+0>:		push   %ebp
-   0x080484f5 <+1>:		mov    %esp,%ebp
-   0x080484f7 <+3>:		sub    $0x18,%esp
-   0x080484fa <+6>:		movl   $0x0,(%esp)
+   0x080484f4 <+0>:	push   %ebp
+   0x080484f5 <+1>:	mov    %esp,%ebp
+   0x080484f7 <+3>:	sub    $0x18,%esp
+   0x080484fa <+6>:	movl   $0x0,(%esp)
    0x08048501 <+13>:	call   0x80483d0 <time@plt>
    0x08048506 <+18>:	mov    $0x80486e0,%edx
    0x0804850b <+23>:	mov    %eax,0x8(%esp)

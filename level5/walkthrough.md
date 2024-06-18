@@ -13,24 +13,22 @@ Similar to previous levels, this binary program awaits standard input and then p
 
 ## GDB analysis
 ```shell
-(gdb) disas main
 Dump of assembler code for function main:
-   0x08048504 <+0>:		push   %ebp
-   0x08048505 <+1>:		mov    %esp,%ebp
-   0x08048507 <+3>:		and    $0xfffffff0,%esp
-   0x0804850a <+6>:		call   0x80484c2 <n>
+   0x08048504 <+0>:	push   %ebp
+   0x08048505 <+1>:	mov    %esp,%ebp
+   0x08048507 <+3>:	and    $0xfffffff0,%esp
+   0x0804850a <+6>:	call   0x80484c2 <n>
    0x0804850f <+11>:	leave
    0x08048510 <+12>:	ret
 End of assembler dump.
 ```
 The main function calls <code>n()</code> upon execution.
 ```shell
-(gdb) disas n
 Dump of assembler code for function n:
-   0x080484c2 <+0>:		push   %ebp
-   0x080484c3 <+1>:		mov    %esp,%ebp
-   0x080484c5 <+3>:		sub    $0x218,%esp
-   0x080484cb <+9>:		mov    0x8049848,%eax
+   0x080484c2 <+0>:	push   %ebp
+   0x080484c3 <+1>:	mov    %esp,%ebp
+   0x080484c5 <+3>:	sub    $0x218,%esp
+   0x080484cb <+9>:	mov    0x8049848,%eax
    0x080484d0 <+14>:	mov    %eax,0x8(%esp)
    0x080484d4 <+18>:	movl   $0x200,0x4(%esp)
    0x080484dc <+26>:	lea    -0x208(%ebp),%eax
@@ -45,7 +43,6 @@ End of assembler dump.
 ```
 The input is once again collected using <code>fgets()</code> and safeguarded against buffer overflow. This function does not return to <code>main()</code> - it immediately terminates by calling <code>exit()</code>. It appears that we may encounter a <code>format string</code> attack again. We decide to look for other functions, since this is one is not offering much.
 ```shell
-(gdb) i func
 All defined functions:
 
 Non-debugging symbols:
@@ -78,12 +75,11 @@ Non-debugging symbols:
 ```
 This reveals function <code>o()</code>, which is not used during runtime.
 ``` shell
-(gdb) disas o
 Dump of assembler code for function o:
-   0x080484a4 <+0>:		push   %ebp
-   0x080484a5 <+1>:		mov    %esp,%ebp
-   0x080484a7 <+3>:		sub    $0x18,%esp
-   0x080484aa <+6>:		movl   $0x80485f0,(%esp)
+   0x080484a4 <+0>:	push   %ebp
+   0x080484a5 <+1>:	mov    %esp,%ebp
+   0x080484a7 <+3>:	sub    $0x18,%esp
+   0x080484aa <+6>:	movl   $0x80485f0,(%esp)
    0x080484b1 <+13>:	call   0x80483b0 <system@plt>
    0x080484b6 <+18>:	movl   $0x1,(%esp)
    0x080484bd <+25>:	call   0x8048390 <_exit@plt>

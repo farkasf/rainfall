@@ -13,19 +13,17 @@ The <code>level2</code> binary waits for standard input and then prints it out.
 
 ## GDB analysis
 ```shell
-(gdb) disas main
 Dump of assembler code for function main:
-   0x0804853f <+0>:		push   %ebp
-   0x08048540 <+1>:		mov    %esp,%ebp
-   0x08048542 <+3>:		and    $0xfffffff0,%esp
-   0x08048545 <+6>:		call   0x80484d4 <p>
+   0x0804853f <+0>:	push   %ebp
+   0x08048540 <+1>:	mov    %esp,%ebp
+   0x08048542 <+3>:	and    $0xfffffff0,%esp
+   0x08048545 <+6>:	call   0x80484d4 <p>
    0x0804854a <+11>:	leave
    0x0804854b <+12>:	ret
 End of assembler dump.
 ```
 The main function calls <code>p()</code> upon execution. This makes us wonder if there are other functions that haven't been called.
 ```shell
-(gdb) i function
 All defined functions:
 
 Non-debugging symbols:
@@ -59,12 +57,11 @@ Non-debugging symbols:
 ```
 As we've seen again before, the function <code>p()</code> utilizes the unsafe <code>gets()</code> function, which is vulnerable to buffer overflow attacks.
 ```shell
-(gdb) disas p
 Dump of assembler code for function p:
-   0x080484d4 <+0>:		push   %ebp
-   0x080484d5 <+1>:		mov    %esp,%ebp
-   0x080484d7 <+3>:		sub    $0x68,%esp
-   0x080484da <+6>:		mov    0x8049860,%eax
+   0x080484d4 <+0>:	push   %ebp
+   0x080484d5 <+1>:	mov    %esp,%ebp
+   0x080484d7 <+3>:	sub    $0x68,%esp
+   0x080484da <+6>:	mov    0x8049860,%eax
    0x080484df <+11>:	mov    %eax,(%esp)
    0x080484e2 <+14>:	call   0x80483b0 <fflush@plt>
    0x080484e7 <+19>:	lea    -0x4c(%ebp),%eax

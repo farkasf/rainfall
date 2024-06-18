@@ -11,13 +11,12 @@ After execution, the program waits for input and then terminates.
 
 ## GDB analysis
 ```shell
-(gdb) disas main
 Dump of assembler code for function main:
-   0x08048480 <+0>:		push   %ebp
-   0x08048481 <+1>:		mov    %esp,%ebp
-   0x08048483 <+3>:		and    $0xfffffff0,%esp
-   0x08048486 <+6>:		sub    $0x50,%esp
-   0x08048489 <+9>:		lea    0x10(%esp),%eax
+   0x08048480 <+0>:	push   %ebp
+   0x08048481 <+1>:	mov    %esp,%ebp
+   0x08048483 <+3>:	and    $0xfffffff0,%esp
+   0x08048486 <+6>:	sub    $0x50,%esp
+   0x08048489 <+9>:	lea    0x10(%esp),%eax
    0x0804848d <+13>:	mov    %eax,(%esp)
    0x08048490 <+16>:	call   0x8048340 <gets@plt>
    0x08048495 <+21>:	leave
@@ -26,7 +25,6 @@ End of assembler dump.
 ```
 The main functions calls <code>gets()</code> functions which reads the input. No other functions are called, so we explore out options.
 ```shell
-(gdb) i functions
 All defined functions:
 
 Non-debugging symbols:
@@ -54,12 +52,11 @@ Non-debugging symbols:
 ```
 There is a function <code>run()</code> which could potentially be our way to level2.
 ```shell
-(gdb) disas run
 Dump of assembler code for function run:
-   0x08048444 <+0>:		push   %ebp
-   0x08048445 <+1>:		mov    %esp,%ebp
-   0x08048447 <+3>:		sub    $0x18,%esp
-   0x0804844a <+6>:		mov    0x80497c0,%eax
+   0x08048444 <+0>:	push   %ebp
+   0x08048445 <+1>:	mov    %esp,%ebp
+   0x08048447 <+3>:	sub    $0x18,%esp
+   0x0804844a <+6>:	mov    0x80497c0,%eax
    0x0804844f <+11>:	mov    %eax,%edx
    0x08048451 <+13>:	mov    $0x8048570,%eax
    0x08048456 <+18>:	mov    %edx,0xc(%esp)

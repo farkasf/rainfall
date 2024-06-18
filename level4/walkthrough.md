@@ -13,24 +13,22 @@ Once again executable waits for standard input and then prints it out.
 
 ## GDB analysis
 ```shell
-(gdb) disas main
 Dump of assembler code for function main:
-   0x080484a7 <+0>:		push   %ebp
-   0x080484a8 <+1>:		mov    %esp,%ebp
-   0x080484aa <+3>:		and    $0xfffffff0,%esp
-   0x080484ad <+6>:		call   0x8048457 <n>
+   0x080484a7 <+0>:	push   %ebp
+   0x080484a8 <+1>:	mov    %esp,%ebp
+   0x080484aa <+3>:	and    $0xfffffff0,%esp
+   0x080484ad <+6>:	call   0x8048457 <n>
    0x080484b2 <+11>:	leave
    0x080484b3 <+12>:	ret
 End of assembler dump.
 ```
 The main function calls <code>n()</code> upon execution.
 ```shell
-(gdb) disas n
 Dump of assembler code for function n:
-   0x08048457 <+0>:		push   %ebp
-   0x08048458 <+1>:		mov    %esp,%ebp
-   0x0804845a <+3>:		sub    $0x218,%esp
-   0x08048460 <+9>:		mov    0x8049804,%eax
+   0x08048457 <+0>:	push   %ebp
+   0x08048458 <+1>:	mov    %esp,%ebp
+   0x0804845a <+3>:	sub    $0x218,%esp
+   0x08048460 <+9>:	mov    0x8049804,%eax
    0x08048465 <+14>:	mov    %eax,0x8(%esp)
    0x08048469 <+18>:	movl   $0x200,0x4(%esp)
    0x08048471 <+26>:	lea    -0x208(%ebp),%eax
@@ -57,7 +55,6 @@ $1 = 16930116
 ```
 Similarly to <code>level4</code>, there is a variable <code>m</code> which we have to modify without having any direct access to it. We check for its existence:
 ``` shell
-(gdb) i var
 All defined variables:
 
 Non-debugging symbols:
@@ -85,13 +82,12 @@ Non-debugging symbols:
 
 Function <code>n</code> also invokes another pre-made function, <code>p()</code>, prompting us to conduct an inspection.
 ```shell
-(gdb) disas p
 Dump of assembler code for function p:
-   0x08048444 <+0>:		push   %ebp
-   0x08048445 <+1>:		mov    %esp,%ebp
-   0x08048447 <+3>:		sub    $0x18,%esp
-   0x0804844a <+6>:		mov    0x8(%ebp),%eax
-   0x0804844d <+9>:		mov    %eax,(%esp)
+   0x08048444 <+0>:	push   %ebp
+   0x08048445 <+1>:	mov    %esp,%ebp
+   0x08048447 <+3>:	sub    $0x18,%esp
+   0x0804844a <+6>:	mov    0x8(%ebp),%eax
+   0x0804844d <+9>:	mov    %eax,(%esp)
    0x08048450 <+12>:	call   0x8048340 <printf@plt>
    0x08048455 <+17>:	leave
    0x08048456 <+18>:	ret

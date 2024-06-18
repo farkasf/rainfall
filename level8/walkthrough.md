@@ -13,14 +13,13 @@ It appears that the binary continuously accepts two strings from standard input 
 
 ## GDB analysis
 ```shell
-(gdb) disas main
 Dump of assembler code for function main:
-   0x08048564 <+0>:		push   %ebp
-   0x08048565 <+1>:		mov    %esp,%ebp
-   0x08048567 <+3>:		push   %edi
-   0x08048568 <+4>:		push   %esi
-   0x08048569 <+5>:		and    $0xfffffff0,%esp
-   0x0804856c <+8>:		sub    $0xa0,%esp
+   0x08048564 <+0>:	push   %ebp
+   0x08048565 <+1>:	mov    %esp,%ebp
+   0x08048567 <+3>:	push   %edi
+   0x08048568 <+4>:	push   %esi
+   0x08048569 <+5>:	and    $0xfffffff0,%esp
+   0x0804856c <+8>:	sub    $0xa0,%esp
    0x08048572 <+14>:	jmp    0x8048575 <main+17>
    0x08048574 <+16>:	nop
    0x08048575 <+17>:	mov    0x8049ab0,%ecx
@@ -169,7 +168,6 @@ We observe that <code>main()</code> employs various functions, ranging from <cod
 ```
 We observe that two of the strings <code>auth</code> and <code>service</code> actually represent global variables, which undergo modification during runtime.
 ```shell
-(gdb) i var
 All defined variables:
 
 Non-debugging symbols:

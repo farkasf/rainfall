@@ -11,13 +11,12 @@ The binary expects a solitary argument, presumed to represent the required passw
 
 ## GDB analysis
 ```shell
-(gdb) disas main
 Dump of assembler code for function main:
-   0x0804847c <+0>:		push   %ebp
-   0x0804847d <+1>:		mov    %esp,%ebp
-   0x0804847f <+3>:		and    $0xfffffff0,%esp
-   0x08048482 <+6>:		sub    $0x20,%esp
-   0x08048485 <+9>:		movl   $0x40,(%esp)
+   0x0804847c <+0>:	push   %ebp
+   0x0804847d <+1>:	mov    %esp,%ebp
+   0x0804847f <+3>:	and    $0xfffffff0,%esp
+   0x08048482 <+6>:	sub    $0x20,%esp
+   0x08048485 <+9>:	movl   $0x40,(%esp)
    0x0804848c <+16>:	call   0x8048350 <malloc@plt>
    0x08048491 <+21>:	mov    %eax,0x1c(%esp)
    0x08048495 <+25>:	movl   $0x4,(%esp)
@@ -43,7 +42,6 @@ End of assembler dump.
 ```
 The main function invokes <code>strcpy()</code> and <code>malloc()</code> during execution. As no other functions are called, we list all functions to identify any unused ones.
 ```shell
-(gdb) i func
 All defined functions:
 
 Non-debugging symbols:
@@ -74,12 +72,11 @@ Non-debugging symbols:
 ```
 We decide to inspect function <code>n()</code>:
 ```shell
-(gdb) disas n
 Dump of assembler code for function n:
-   0x08048454 <+0>:		push   %ebp
-   0x08048455 <+1>:		mov    %esp,%ebp
-   0x08048457 <+3>:		sub    $0x18,%esp
-   0x0804845a <+6>:		movl   $0x80485b0,(%esp)
+   0x08048454 <+0>:	push   %ebp
+   0x08048455 <+1>:	mov    %esp,%ebp
+   0x08048457 <+3>:	sub    $0x18,%esp
+   0x0804845a <+6>:	movl   $0x80485b0,(%esp)
    0x08048461 <+13>:	call   0x8048370 <system@plt>
    0x08048466 <+18>:	leave
    0x08048467 <+19>:	ret
@@ -87,12 +84,11 @@ End of assembler dump.
 ```
 As well as function <code>m()</code>:
 ``` shell
-(gdb) disas m
 Dump of assembler code for function m:
-   0x08048468 <+0>:		push   %ebp
-   0x08048469 <+1>:		mov    %esp,%ebp
-   0x0804846b <+3>:		sub    $0x18,%esp
-   0x0804846e <+6>:		movl   $0x80485d1,(%esp)
+   0x08048468 <+0>:	push   %ebp
+   0x08048469 <+1>:	mov    %esp,%ebp
+   0x0804846b <+3>:	sub    $0x18,%esp
+   0x0804846e <+6>:	movl   $0x80485d1,(%esp)
    0x08048475 <+13>:	call   0x8048360 <puts@plt>
    0x0804847a <+18>:	leave
    0x0804847b <+19>:	ret

@@ -13,24 +13,22 @@ Similar to the <code>level2</code> binary, our executable waits for standard inp
 
 ## GDB analysis
 ```shell
-(gdb) disas main
 Dump of assembler code for function main:
-   0x0804851a <+0>:		push   %ebp
-   0x0804851b <+1>:		mov    %esp,%ebp
-   0x0804851d <+3>:		and    $0xfffffff0,%esp
-   0x08048520 <+6>:		call   0x80484a4 <v>
+   0x0804851a <+0>:	push   %ebp
+   0x0804851b <+1>:	mov    %esp,%ebp
+   0x0804851d <+3>:	and    $0xfffffff0,%esp
+   0x08048520 <+6>:	call   0x80484a4 <v>
    0x08048525 <+11>:	leave
    0x08048526 <+12>:	ret
 End of assembler dump.
 ```
 The main function calls <code>v()</code> only upon execution.
 ```shell
-(gdb) disas v
 Dump of assembler code for function v:
-   0x080484a4 <+0>:		push   %ebp
-   0x080484a5 <+1>:		mov    %esp,%ebp
-   0x080484a7 <+3>:		sub    $0x218,%esp
-   0x080484ad <+9>:		mov    0x8049860,%eax
+   0x080484a4 <+0>:	push   %ebp
+   0x080484a5 <+1>:	mov    %esp,%ebp
+   0x080484a7 <+3>:	sub    $0x218,%esp
+   0x080484ad <+9>:	mov    0x8049860,%eax
    0x080484b2 <+14>:	mov    %eax,0x8(%esp)
    0x080484b6 <+18>:	movl   $0x200,0x4(%esp)
    0x080484be <+26>:	lea    -0x208(%ebp),%eax
@@ -65,7 +63,6 @@ $1 = 64
 ```
 This means there is a variable <code>m</code> which we have to modify without having any direct access to it. We check for its existence:
 ``` shell
-(gdb) i var
 All defined variables:
 
 Non-debugging symbols:

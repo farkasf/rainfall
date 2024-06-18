@@ -1,0 +1,9 @@
+[how do hackers exploit buffers that are too small?] https://www.youtube.com/watch?v=qpyRz5lkRjE
+
+[why do hackers love strings?] https://www.youtube.com/watch?v=fjMrDDj47E8
+
+[How They Hack: Buffer Overflow & GDB Analysis - James Lyne] https://www.youtube.com/watch?v=V9lMxx3iFWU
+
+[Buffer Overflow - OWASP Foundation] https://owasp.org/www-community/vulnerabilities/Buffer_Overflow
+
+[what ever happened to buffer overflows?] https://www.youtube.com/watch?v=z6gdQt8mjn4

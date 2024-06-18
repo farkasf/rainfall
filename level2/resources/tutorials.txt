@@ -1,0 +1,7 @@
+[Exploiting Return to Libc (ret2libc) tutorial - pwn109 - PWN101 | TryHackMe] https://www.youtube.com/watch?v=TTCz3kMutSs
+
+[How to exploit Buffer Overflow with ret2libc | Full Practical] https://www.youtube.com/watch?v=q-2O4XuLZAU
+
+[RET2LIBC ATTACK IN LINUX. Ret2Libc — -> Return To LIBC] https://infosecwriteups.com/ret2libc-attack-in-lin-3dfc827c90c3
+
+[Performing a ret2libc Attack] https://shellblade.net/files/docs/ret2libc.pdf

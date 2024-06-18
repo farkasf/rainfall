@@ -1,0 +1,11 @@
+[Format string attack] https://owasp.org/www-community/attacks/Format_string_attack
+
+[Exploiting Printf Vulnerability in C] https://stackoverflow.com/questions/46776664/exploiting-printf-vulnerability-in-c
+
+[EXPLOITING FORMAT STRING VULNERABILITY] https://infosecwriteups.com/exploiting-format-string-vulnerability-97e3d588da1b
+
+[Exploiting Format String Vulnerabilities] https://cs155.stanford.edu/papers/formatstring-1.2.pdf
+
+[Exploiting a GOT overwrite] https://ir0nstone.gitbook.io/notes/types/stack/got-overwrite/exploiting-a-got-overwrite
+
+[spawn shell using simple got overwrite] https://infosecwriteups.com/got-overwrite-bb9ff5414628

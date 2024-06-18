@@ -1,0 +1,3 @@
+[The Hacker's Guide to Reverse Engineering] https://www.foo.be/cours/dess-20122013/b/Eldad_Eilam-Reversing__Secrets_of_Reverse_Engineering-Wiley(2005).pdf
+
+[everything is open source if you can reverse engineer (try it RIGHT NOW!)] https://www.youtube.com/watch?v=gh2RXE9BIN8

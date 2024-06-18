@@ -1,0 +1,12 @@
+
+[you need to stop using print debugging (do THIS instead)] https://www.youtube.com/watch?v=3T3ZDquDDVg
+
+[you can learn assembly FAST with this technique (arm64 breakdown)] https://www.youtube.com/watch?v=vhyettT7sdA
+
+[you can become a GIGACHAD assembly programmer in 10 minutes (try it RIGHT NOW)] https://www.youtube.com/watch?v=6S5KRJv-7RU
+
+[everything is open source if you can reverse engineer (try it RIGHT NOW!)] https://www.youtube.com/watch?v=gh2RXE9BIN8
+
+[reverse engineering makes you a better programmer (let’s try it out)] https://www.youtube.com/watch?v=1d-6Hv1c39c
+
+[The Hacker's Guide to Reverse Engineering] https://www.foo.be/cours/dess-20122013/b/Eldad_Eilam-Reversing__Secrets_of_Reverse_Engineering-Wiley(2005).pdf

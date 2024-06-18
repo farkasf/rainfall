@@ -1,0 +1,7 @@
+[Buffer Overflow - OWASP Foundation] https://owasp.org/www-community/vulnerabilities/Buffer_Overflow
+
+[why do hackers love strings?] https://www.youtube.com/watch?v=fjMrDDj47E8
+
+[Strcpy security exploit – How to easily buffer overflow] https://pointerless.wordpress.com/2012/02/26/strcpy-security-exploit-how-to-easily-buffer-overflow/
+
+[Tag: how to exploit strcpy() - Euphoria Reload3d] https://shankaraman.wordpress.com/tag/how-to-exploit-strcpy/

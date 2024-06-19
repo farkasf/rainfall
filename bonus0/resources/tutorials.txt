@@ -1,0 +1,11 @@
+[Shellcode Injection | by Hussain - Medium] https://ain-kun.medium.com/shellcode-injection-ae82737d8f65
+
+[Malware Development: Processes, Threads, and Handles] https://www.youtube.com/watch?v=aNEqC-U5tHM
+
+[Shellcode Injection] https://dhavalkapil.com/blogs/Shellcode-Injection/
+
+[Buffer Overflows: A Symphony of Exploitation] https://www.youtube.com/watch?v=6sUd3AA7Q50
+
+[WHAT IS SUID AND HOW TO SET SUID IN LINUX/UNIX?] https://www.linuxnix.com/suid-set-suid-linuxunix/
+
+[Buffer Overflow Examples, Code execution by shellcode injection - protostar stack5] https://0xrick.github.io/binary-exploitation/bof5/

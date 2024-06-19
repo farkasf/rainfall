@@ -73,7 +73,7 @@ End of assembler dump.
 Call to <code>system()</code> supports this theory. We can use the common buffer overflow exploit to access the <code>run()</code> function and trigger the <code>/bin/sh</code> of level2.
 
 ## Buffer overrun attack
-To find the offset, we can use an online tool ([Wiremask](https://wiremask.eu/tools/buffer-overflow-pattern-generator/)) or a custom python script.
+To find the offset, we can use an online tool ([Wiremask](https://wiremask.eu/tools/buffer-overflow-pattern-generator/)).
 ``` shell
 level1@RainFall:~$ echo "Aa0Aa1Aa2Aa3Aa4Aa5Aa6Aa7Aa8Aa...Ag2Ag3Ag4Ag5Ag" > /tmp/pattern
 level1@RainFall:~$ gdb ./level1

@@ -17,7 +17,6 @@ void	p(void)
 	}
 	puts(buff);
 	strdup(buff);
-	return ;
 }
 
 int main(void)

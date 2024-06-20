@@ -23,6 +23,6 @@ int main(int ac, char **av)
 		execv(shell, arg);
 	}
 	else
-		fwrite("No !\n", 1, 5, 2);
+		fwrite("No !\n", 1, 5, stderr);
 	return (0);
 }

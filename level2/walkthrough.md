@@ -1,6 +1,6 @@
-# Level2
+# level2
 
-## Exploring the binary
+## exploring the binary
 ```shell
 level2@RainFall:~$ ./level2
 phantom
@@ -121,7 +121,7 @@ $2 = {<text variable, no debug info>} 0xb7e5ebe0 <exit>
 0xb7f8cc58
 ```
 
-## Exploit
+## exploit
 The exploit is constructed using the addresses and overflow in the following order:
 1. Offset of 80 bytes.
 2. Return address from function <code>p()</code> (0x0804853e).

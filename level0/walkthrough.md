@@ -1,6 +1,6 @@
-# Level0
+# level0
 
-## Exploring the binary
+## exploring the binary
 ```shell
 level0@RainFall:~$ ./level0
 Segmentation fault (core dumped)
@@ -75,7 +75,7 @@ If the condition is met, we get access to the <code>level1</code> shell.
 ```
 
 
-## Exploit
+## exploit
 ``` shell
 level0@RainFall:~$ ./level0 423
 $ whoami

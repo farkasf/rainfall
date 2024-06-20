@@ -1,6 +1,6 @@
-# Level8
+# level8
 
-## Exploring the binary
+## exploring the binary
 ```shell
 level8@RainFall:~$ ./level8
 (nil), (nil)
@@ -203,7 +203,7 @@ Non-debugging symbols:
 
 It looks simple - we just enter "auth" at the beginning and then just fill the buffer.
 
-## Exploit
+## exploit
 ``` shell
 level8@RainFall:~$ ./level8
 (nil), (nil)

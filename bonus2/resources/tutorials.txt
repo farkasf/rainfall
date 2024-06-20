@@ -1,0 +1,7 @@
+[Buffer Overflow - OWASP Foundation] https://owasp.org/www-community/vulnerabilities/Buffer_Overflow
+
+[How They Hack: Buffer Overflow & GDB Analysis - James Lyne] https://www.youtube.com/watch?v=V9lMxx3iFWU
+
+[Buffer Overflow Examples, Code execution by shellcode injection - protostar stack5] https://0xrick.github.io/binary-exploitation/bof5/
+
+[] https://www.youtube.com/watch?v=HSlhY4Uy8SA

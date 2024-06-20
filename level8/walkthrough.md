@@ -201,7 +201,7 @@ Non-debugging symbols:
 - <code>service</code>: Uses <code>strdup</code> to duplicate the remaining input and stores it in the <code>service</code> variable.
 - <code>login</code>: Verifies if the 32nd character in <code>auth</code> is set.
 
-It looks simple - we just enter "auth" at the beginning and then just fill the buffer.
+It seems straightforward: we begin by entering 'auth', then proceed to fill the buffer. This simplicity arises from the close relationship between the global variables and the stack.
 
 ## exploit
 ``` shell

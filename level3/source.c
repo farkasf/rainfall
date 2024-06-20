@@ -12,7 +12,7 @@ void	v(void)
 	printf(buffer);
 	if (m == 64)
 	{
-		fwrite("Wait what?!\n", 12, 1, stdout);
+		fwrite("Wait what?!\n", 1, 12, stdout);
 		system("/bin/sh");
 	}
 }

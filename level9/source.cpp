@@ -9,24 +9,14 @@ class	N
 
 	public:
 		N(int input);
-		N &operator=(N const &input);
-		~N(void);
 
-		int operator+(N const &next);
-		int operator-(N const &next);
-
+		int 	operator+(N const &next);
+		int 	operator-(N const &next);
 		void	setAnnotation(char const *annot);
 };
 
 N::N(int input) {
 	this->_num = input;
-}
-
-N	&N::operator=(N const &input) {
-	if (this == &input)
-		return (*this);
-	this->_num = input._num;
-	return (*this);
 }
 
 int	N::operator+(N const &next) {
@@ -37,8 +27,6 @@ int	N::operator-(N const &next)
 {
 	return (this->_num - next._num);
 }
-
-N::~N(void) { }
 
 void	N::setAnnotation(char const *annot) {
 	memcpy(this->_annotation, annot, strlen(annot) + 1);

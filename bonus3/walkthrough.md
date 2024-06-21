@@ -3,12 +3,7 @@
 ## exploring the binary
 ```shell
 bonus3@RainFall:~$ ./bonus3
-bonus3@RainFall:~$ echo $?
-255
 bonus3@RainFall:~$ ./bonus3 phantom
-
-bonus3@RainFall:~$ echo $?
-0
 ```
 The executable runs with and without an argument and does not segfault, revealing little information.
 

